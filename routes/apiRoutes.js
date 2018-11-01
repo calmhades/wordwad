@@ -1,23 +1,45 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Get all examples
-  app.get("/api/examples", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
+  // Get all stories
+  app.get("/api/story", function(req, res) {
+    db.Story.findAll({}).then(function(dbExamples) {
       res.json(dbExamples);
     });
   });
 
-  // Create a new example
-  app.post("/api/examples", function(req, res) {
+  // Find a specific story
+  app.get("/api/story/:id", function(req, res) {
+    db.Story.findAll({}).then(function(dbExamples) {
+      res.json(dbExamples);
+    });
+  });
+
+
+  // Create a new story
+  app.post("/api/story", function(req, res) {
     db.Example.create(req.body).then(function(dbExample) {
       res.json(dbExample);
     });
   });
 
-  // Delete an example by id
-  app.delete("/api/examples/:id", function(req, res) {
-    db.Example.destroy({ where: { id: req.params.id } }).then(function(dbExample) {
+ 
+  // Create an entry
+  app.post("/api/entry", function(req, res) {
+    db.Example.create(req.body).then(function(dbExample) {
+      res.json(dbExample);
+    });
+  });
+
+  app.post("/api/entry/:id", function(req, res) {
+    db.Example.create(req.body).then(function(dbExample) {
+      res.json(dbExample);
+    });
+  });
+  
+  // Create a new entry 
+  app.post("/api/login", function(req, res) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
       res.json(dbExample);
     });
   });
