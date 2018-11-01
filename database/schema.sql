@@ -12,10 +12,6 @@ CREATE TABLE users
 );
 
 
-
-
-
-
 CREATE TABLE storyBegins
 (
     id INTEGER NOT NULL AUTO_INCREMENT,
