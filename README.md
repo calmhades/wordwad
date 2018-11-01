@@ -12,6 +12,8 @@ Choose your own adventure app
 |GET| /api/story|data|JSON story data| null|story api|
 |GET| /api/story/:id|data|specific story data| null|Get specific story|
 |POST|/api/story|data|post JSON data|story data|Post Story Fragment|
+|POST|/api/entry/| data| post JSON data| entry data| entry api information|
+|POST|/api/entry/:id|data|specific Entry Data| null| specific entry information/text
 |POST|/login|data|password and username| authenicated| authenication post|
 |PUT| /api/story/:id|data|Updated story post|updated Story|Allows author to update a post they had previously made.
 

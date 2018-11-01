@@ -1,11 +1,15 @@
 module.exports = function(sequelize, DataTypes) {
     var Entry = sequelize.define("Entry", {
+      title: DataTypes.STRING,
       author: DataTypes.TEXT(50),
-        text: DataTypes.TEXT(255),
+      text: DataTypes.TEXT(255),
+        //link to Story via story ID
       storyId: DataTypes.INTEGER,
-      parentId: DataTypes.INTEGER,
+      //Link to previous entry via ParentID
+      //parentId: DataTypes.INTEGER,
       yourStory: DataTypes.BOOLEAN
     });
+    folder.isHierarchy();
     return Entry;
   };
   
