@@ -14,3 +14,5 @@ Choose your own adventure app
 |POST|/api/story|data|post JSON data|story data|Post Story Fragment|
 |POST|/login|data|password and username| authenicated| authenication post
 
+
+
