@@ -1,4 +1,3 @@
-
 CREATE DATABASE wordwad_db;
 USE wordwad_db;
 
