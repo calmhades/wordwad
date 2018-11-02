@@ -9,7 +9,7 @@ module.exports = function(sequelize, DataTypes) {
       //parentId: DataTypes.INTEGER,
       yourStory: DataTypes.BOOLEAN
     });
-    folder.isHierarchy();
+    Entry.isHierarchy();
     return Entry;
   };
   
