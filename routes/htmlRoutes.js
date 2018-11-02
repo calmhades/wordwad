@@ -10,7 +10,7 @@ module.exports = function(app) {
     });
   });
 
-  // Load example page and pass in an example by id
+  // Load all sotires or an individual one by ID 
   app.get("/story/:id?", function(req, res) {
     db.Story.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
       res.render("example", {
@@ -29,9 +29,11 @@ module.exports = function(app) {
           author: authors
         });
       })
-    })
+    });
+    
+    app.get("/login", function(req, res) {
+      // if token = valid finish req otherwise redirect /login 
+    });
   };
 
-  app.get("/login", function(req, res) {
-    // if token = valid finish req otherwise redirect /login 
-  });
+ 
