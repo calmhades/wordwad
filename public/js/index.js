@@ -1,34 +1,96 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
+
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
 // The API object contains methods for each kind of request we'll make
-var API = {
-  saveExample: function(example) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
+$("#add-story").on("click", function(event){
+  event.preventDefault();
+
+  var newStory = {
+    root_entry_id: $("root-entry-id").val().trim(),
+    title: $("title").val().trim(),
+    genre: $("genre").val().trim(),
+  };
+  $.post("/api/story", newStory)
+  .then(function(data){
+    console.log(data);
+
+  });
+  $("#root-entry-id").val("");
+  $("#title").val("");
+  $("#genre").val("");
+
+});
+
+$("#add-entry").on("click", function(event){
+  event.preventDefault();
+
+  var newEntry = {
+    body_text: $("body-text")
+  };
+  
+  $.post("/api/entry", newEntry)
+  .then(function(data){
+    console.log(data);
+
+  });
+  $("#body-text").val("");
+ 
+
+});
+
+$("#add-user").on("click", function(event){
+  event.preventDefault();
+
+  var newUser = {
+    user_name: $("user_name"),
+    user_email: $("user_email"),
+    user_password: $("user_password")
+  };
+  
+  $.post("/api/login", newUser)
+  .then(function(data){
+    console.log(data);
+
+  });
+  $("#user_name").val("");
+  $("#user_email").val("");
+  $("#user_password").val("");
+ 
+
+});
+
+$("#every-story").on("click", function(event, data){
+  event.preventDefault();
+  for (var i = 0; i < data.length; i++)
+{
+    // for each character that our server sends us back
+    for (var i = 0; i < data.length; i++) {
+      // create a parent div for the oncoming elements
+      var storySection = $("<div>");
+      // add a class to this div: 'well'
+      storySection.addClass("all-stories");
+      // add an id to the well to mark which well it is
+      storySection.attr("id", "story-well-" + i);
+      // append the well to the well section
+      $("#story-section").append(storySection);
+  
+      // Now add all of our character data to the well we just placed on the page
+  
+     
+      $("#story-well-" + i).append("<h2>" + data[i].title + "</h2>");
+      $("#story-well-" + i).append("<h3>Genre: " + data[i].genre + "</h3>");
+      $("#story-well-" + i).append("<h3>ID: " + data[i].root_entry_id + "</h3>");
+      
+     
   }
-};
+
+}
+});
+
+
+
 
 // refreshExamples gets new examples from the db and repopulates the list
 var refreshExamples = function() {
@@ -95,5 +157,8 @@ var handleDeleteBtnClick = function() {
 };
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+createStory.on("click", "POST", createStory);
+submitEntry.on("click", "POST", submitEntry);
+getAll.on("click", "GET", getAll);
+createLogin.on("click", "POST", createLogin);
+getOne.on("click", "GET", getOne);
