@@ -1,4 +1,4 @@
-module.exports = function(sequelize, DataTypes) {
+module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define("User", {
       firstName: DataTypes.STRING,
       lastName: DataTypes.STRING,
@@ -11,6 +11,7 @@ module.exports = function(sequelize, DataTypes) {
       password: DataTypes.STRING
   });
 
+<<<<<<< HEAD
   User.associate = function(models) {
     User.hasMany(models.Story, {
 
@@ -20,5 +21,16 @@ module.exports = function(sequelize, DataTypes) {
     })
   }
 
+=======
+    User.associate = function(models){
+      User.hasMany(models.Story, {
+        foreignKey: creatorID, 
+          allowNull: false
+
+      });
+      
+    }
+>>>>>>> master
   return User;
 };
+
