@@ -1,9 +1,10 @@
-require("dotenv").config();
+var env = require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
+var authRoute = require('./routes/auth.js')(app, passport);
 
 var app = express();
 var passport = require("passport");
@@ -16,7 +17,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
-app.use(session({secret: "keyboard cat", resave: true, saveUninitialized:true})); //this is the sessions secret
+app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true })); //this is the sessions secret
 app.use(passport.initialize());
 app.use(passport.session()); //persistent login sessions
 
@@ -32,6 +33,7 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./config/passport.js")(passport, models.user);
 
 
 
@@ -44,14 +46,16 @@ if (process.env.NODE_ENV === "test") {
 }
 
 // Starting the server, syncing our models ------------------------------------/
-db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+db.sequelize.sync(syncOptions).then(function () {
+  app.listen(PORT, function () {
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
       PORT
-    );
-  });
+    )
+  })
+}).catch(function (err) {
+  console.log(err, "Something went wrong with the database update! HAVE A GREAT DAY!!!");
 });
 
 module.exports = app;
