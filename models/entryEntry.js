@@ -14,5 +14,5 @@ module.exports = function(sequelize, DataTypes) {
 
 
     return EntryEntry;
-    // need to add associations for CURRENT ENTRY foreign key & NEXT ENTRY foreign key
+    
 };
