@@ -27,12 +27,41 @@
   </nav>
   <div class="section no-pad-bot grey darken-3" id="index-banner">
     <div class="container">
-      <br><br>
-      <div class="center"><img src="public/img/wordwadinvert-f.png" height="100" width"500"></div>
-      <br><br>
-      <!-- <h1 class="header center white-text">What is WordWad?</h1> -->
       <div class="row center">
-        <h5 class="header col s12 white-text">WordWad is an open-ended story creation app in the style of the old Choose-your-own-adventure books.  Users can create stories, read stories, and add to others stories.</h5>
+        <h4 class="white-text">[new]:[wad]</h4>
+      </div>
+      <br><br>
+      <div class="row">
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="title" type="text" class="validate white-text">
+              <label for="title">Title</label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s12">
+              <input id="genre" type="text" class="validate white-text">
+              <label for="genre">Genre</label>
+            </div>
+          </div>
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <textarea  id="newStory" class="materialize-textarea white-text"></textarea>
+                  <label for="newStory">Begin your story</label>
+                  <span class="white-text" class="helper-text" data-error="wrong" data-success="right">the text area will expand as you type, returns are recognized</span>
+                </div>
+              </div>
+            </form>
+          </div>
+          
+          
+        </form>
+        <button id="newStorySubmit" class="btn waves-effect waves-light" type="submit" name="action">Publish
+          <i class="material-icons right">control_point</i>
+        </button>
       </div>
       <br><br>
 
@@ -40,33 +69,7 @@
   </div>
 
 
-  <div class="container grey darken-3">
-    <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="icon-block">
-            <h2 class="center blue-grey-text"><i class="material-icons">create</i></h2>
-            <h5 class="center white-text">Start writing your next wad!</h5>
-
-          </div>
-        </div>
-
-        <div class="col s12 m6">
-          <div class="icon-block">
-            <h2 class="center blue-grey-text"><i class="material-icons">remove_red_eye</i></h2>
-            <h5 class="center white-text">Browse wads</h5>
-
-          </div>
-        </div>
-
-        
-      </div>
-
-    </div>
-    <br><br>
-  </div>
+  
 
   <footer class="page-footer grey darken-3">
     <div class="container">
