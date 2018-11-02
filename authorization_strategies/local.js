@@ -12,7 +12,7 @@ const strategy = new Strategy(
             where: { username: username }
         }).then(
             function (DBuser){
-                console.log("bacl from the database! lets check if our credentials are good: ");
+                console.log("back from the database! lets check if our credentials are good: ");
                 if (!DBuser) {
                     console.log("user " + username + " was not in the DB");
                     return done(null, false, {message: "incorrect username."});
@@ -32,4 +32,4 @@ const strategy = new Strategy(
     }
 );
 
-module.exportds = strategy;
+module.exports = strategy;
