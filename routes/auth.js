@@ -3,10 +3,13 @@ var authController = require('../controllers/authcontroller.js');
 module.exports = function (app, passport) {
 
     app.get('/signup', authController.signup);
+    // get route for sign up page
 
     app.get('/signin', authController.signin);
+    // for sign in/login page
 
     app.get('/dashboard', isLoggedIn, authController.dashboard);
+    // for homepage/landing page
 
     app.post('/signup', passport.authenticate('local-signup',
         {
@@ -29,5 +32,6 @@ module.exports = function (app, passport) {
         if (req.isAuthenticated())
             return next();
         res.redirect('/signin')
+        // on failed login redirect to signin/login page for new attempt
     }
 }
