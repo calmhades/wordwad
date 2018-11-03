@@ -6,10 +6,16 @@ module.exports = function(sequelize, DataTypes) {
 
     });
     EntryEntry.associate = function(models){
-        EntryEntry.BelongsTo(models.Entry, {
-          foreignKey:currentEntryId,
-            allowNull: false
+        EntryEntry.belongsTo(models.Entry, {
+            foreignKey: "currentEntryId",
+                allowNull: false
         });
+
+        //not sure about this association.
+        EntryEntry.belongsTo(models.EntryEntry,{
+            foreignKey: "nextEntryID",
+                allowNull: true
+            })
     };
 
 
