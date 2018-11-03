@@ -9,7 +9,11 @@ module.exports = function (sequelize, DataTypes) {
         },
       username: DataTypes.STRING,
       password: DataTypes.STRING
-  });
+      }, 
+      {
+        paranoid: true
+      }
+  );
 
     User.associate = function(models){
       User.hasMany(models.Story, {
@@ -19,6 +23,8 @@ module.exports = function (sequelize, DataTypes) {
       });
       
     }
+    User.sync();
+
   return User;
 };
 

@@ -2,17 +2,17 @@ module.exports = function(exports) {
 
     exports.signup = function (req, res) {
 
-        res.render("signup", {User: data} );
+        res.render("signup");
 
     };
 
     exports.signin = function (req, res) {
 
-        res.render("signin", {User: data} );
+        res.render("signin");
 
     };
 
     exports.dashboard = function (req, res) {
-        res.render("dashboard", {User: data});
+        res.render("dashboard");
     };
 };
