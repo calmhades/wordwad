@@ -2,7 +2,9 @@ var authController = require('../controllers/authcontroller.js');
 
 module.exports = function (app, passport) {
 
-    app.get('/signup', authController.signup);
+    app.get('/signup', function(req,res){
+        res.render('newUser')
+    });
     // get route for sign up page
 
     app.get('/signin', authController.signin);

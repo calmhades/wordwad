@@ -21,7 +21,7 @@ module.exports = function (passport, user) {
 
     passport.use("local-signup", new LocalStrategy(
         {
-            usernameField: "email",
+            usernameField: "username",
             passwordField: "password",
             passReqToCallback: true
         },
@@ -33,18 +33,18 @@ module.exports = function (passport, user) {
 
             User.findOne({
                 where: {
-                    email: email
+                    username: username
                 }
             }).then(function (user) {
                 if (user) {
                     return done(null, false, {
-                        message: "that email is already taken"
+                        message: "that username is already taken"
                     });
                 } else {
                     var userPassword = generateHash(password);
                     var data =
                     {
-                        email: email,
+                        username: username,
                         password: userPassword,
                         firstname: req.body.firstname,
                         lastname: req.body.lastname
@@ -65,7 +65,7 @@ module.exports = function (passport, user) {
 
     passport.use('local-signin', new LocalStrategy(
         {
-            usernameField: 'email',
+            usernameField: 'username',
             passwordField: 'password',
             passReqToCallback: true
         },
@@ -76,12 +76,12 @@ module.exports = function (passport, user) {
             }
             User.findOne({
                 where: {
-                    email: email
+                    username: username
                 }
             }).then(function (user) {
                 if (!user) {
                     return done(null, false, {
-                        message: 'Email does not exist'
+                        message: 'Username does not exist'
                     });
                 }
 

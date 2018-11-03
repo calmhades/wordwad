@@ -2,14 +2,14 @@ var exports = module.exports = {}
 
 exports.signup = function (req, res) {
 
-    res.render('signup');
+    res.render('newUser');
     //sign up/ account create page
 
 };
 
 exports.signin = function (req, res) {
 
-    res.render('signin');
+    res.render('login');
     //render the sign in/ login page
 
 };
