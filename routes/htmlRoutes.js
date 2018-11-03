@@ -1,14 +1,19 @@
 var db = require("../models");
 
+
 module.exports = function(app) {
   // Load index page
+
   app.get("/", function(req, res) {
-    db.Story.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        examples: dbExamples
-      });
+    res.sendFile(path.join(__dirname, '../index.html'));   
     });
+  
+
+
+  app.get("/login", function(req, res) {
+    res.sendFile(path.join(__dirname, '../login.html'));   
   });
+
 
   // Load all sotires or an individual one by ID 
   app.get("/story/:id?", function(req, res) {
@@ -31,9 +36,6 @@ module.exports = function(app) {
       })
     });
     
-    app.get("/login", function(req, res) {
-      // if token = valid finish req otherwise redirect /login 
-    });
   };
 
  
