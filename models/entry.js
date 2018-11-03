@@ -3,29 +3,18 @@ module.exports = function(sequelize, DataTypes) {
       text: DataTypes.TEXT,
     });
 
-<<<<<<< HEAD
-    Entry.associate = function(models) {
-      Entry.belongsTo(models.Story, {
-        
-      });
-    }
-      Entry.hasMany(models.EntryEntry, {
-      });
-
-=======
     Entry.associate = function(models){
-      Entry.BelongsTo(models.Story, {
+      Entry.belongsTo(models.Story, {
         foreignKey: {
           allowNull: false
         }
       });
       Entry.hasMany(models.EntryEntry,{
-        foreightKey:{
+        foreignKey:{
           allowNull: false
         }
       });
     }
->>>>>>> master
     return Entry;
     
   };
