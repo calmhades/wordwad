@@ -11,17 +11,6 @@ module.exports = function (sequelize, DataTypes) {
       password: DataTypes.STRING
   });
 
-<<<<<<< HEAD
-  User.associate = function(models) {
-    User.hasMany(models.Story, {
-
-    })
-    User.hasMany(models.Entry, {
-      
-    })
-  }
-
-=======
     User.associate = function(models){
       User.hasMany(models.Story, {
         foreignKey: creatorID, 
@@ -30,7 +19,6 @@ module.exports = function (sequelize, DataTypes) {
       });
       
     }
->>>>>>> master
   return User;
 };
 
