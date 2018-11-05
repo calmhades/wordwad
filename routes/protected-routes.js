@@ -8,11 +8,9 @@ router.route("/api/entry")
     })
 
 router.route("/api/story")
-    .get(  (req,res) => res.json(req.user) )
     .post( (req,res) => res.json(req.user) )
 
 router.route("/api/entryEntry")
-    .get(  (req,res) => res.json(req.user) )
     .post( (req,res) => res.json(req.user) )
 
 
