@@ -1,3 +1,4 @@
+
 module.exports = function (sequelize, DataTypes) {
   var User = sequelize.define("User", {
       firstName: DataTypes.STRING,
@@ -9,8 +10,19 @@ module.exports = function (sequelize, DataTypes) {
         },
       username: DataTypes.STRING,
       password: DataTypes.STRING
-  });
+      }, 
+      {
+        paranoid: true
+      }
+  );
 
+    // Trying out validPassword Prototype 
+    User.prototype.validPassword = function(password) {
+      console.log("Password from the DB:" , this.password)
+      console.log("Password from the Client :" , password)
+      return (this.password === password)
+    };
+      
     User.associate = function(models){
       User.hasMany(models.Story, {
         foreignKey: "creatorID", 
@@ -19,6 +31,8 @@ module.exports = function (sequelize, DataTypes) {
       });
       
     }
+    User.sync();
+
   return User;
 };
 
