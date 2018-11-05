@@ -1,72 +1,74 @@
-  <nav class="blue-grey" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">[word]:[wad]</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Create Wad</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Browse</a></li>
-      </ul>
+<nav class="blue-grey" role="navigation">
+  <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">[word]:[wad]</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/newStory.handlebars">Create Wad</a></li>
+      <li><a href="/login.handlebars">Login</a></li>
+      <li><a href="/browseWads.handlebars">Browse</a></li>
+    </ul>
 
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    <ul id="nav-mobile" class="sidenav">
+      <li><a href="#">Navbar Link</a></li>
+      {{!-- not sure what this needs to link to --}}
+    </ul>
+    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    {{!-- not sure about this either --}}
+  </div>
+</nav>
+<div class="section no-pad-bot grey darken-3" id="index-banner">
+  <div class="container">
+    <div class="row center">
+      <h4 class="white-text">[log]:[in]</h4>
     </div>
-  </nav>
-  <div class="section no-pad-bot grey darken-3" id="index-banner">
-    <div class="container">
-      <div class="row center">
-        <h4 class="white-text">[log]:[in]</h4>
-      </div>
-      <br><br>
-      <div class="row">
-        <form class="col s12">
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="userName" type="text" class="validate">
-              <label for="userName">User Name</label>
-            </div>
+    <br><br>
+    <div class="row">
+      <form class="col s12">
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="userName" type="text" class="validate">
+            <label for="userName">User Name</label>
           </div>
-          <div class="row">
-            <div class="input-field col s12">
-              <input id="password" type="password" class="validate">
-              <label for="password">Password</label>
-            </div>
+        </div>
+        <div class="row">
+          <div class="input-field col s12">
+            <input id="password" type="password" class="validate">
+            <label for="password">Password</label>
           </div>
-          
-          
-        </form>
-        <button id="userLogin" class="btn waves-effect waves-light" type="submit" name="action">Login
-          <i class="material-icons right">control_point</i>
-        </button>
+        </div>
+
+
+      </form>
+      <button id="userLogin" class="btn waves-effect waves-light" type="submit" name="action">Login
+        <i class="material-icons right">control_point</i>
+      </button>
+    </div>
+    <br><br>
+
+  </div>
+</div>
+
+
+
+
+<footer class="page-footer grey darken-3">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">[word]:[wad] © 2018</h5>
+
+
+
       </div>
-      <br><br>
+      <div class="col l3 s12">
+        <h5 class="white-text">links</h5>
+        <ul>
+          <li><a class="white-text" href="/newStory.handlebars">create</a></li>
+          <li><a class="white-text" href="/login.handlebars">login</a></li>
+          <li><a class="white-text" href="/browseWads.handlebars">browse</a></li>
+
+        </ul>
+      </div>
 
     </div>
   </div>
 
-
-  
-
-  <footer class="page-footer grey darken-3">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">[word]:[wad] © 2018</h5>
-          
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">links</h5>
-          <ul>
-            <li><a class="white-text" href="#!">create</a></li>
-            <li><a class="white-text" href="#!">browse</a></li>
-            <li><a class="white-text" href="#!">login</a></li>
-            
-          </ul>
-        </div>
-        
-      </div>
-    </div>
-    
-  </footer>
+</footer>
