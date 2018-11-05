@@ -7,20 +7,6 @@ var exphbs = require("express-handlebars");
 var db = require("./models");
 
 var app = express();
-<<<<<<< HEAD
-var passport = require("passport");
-var session = require("express-session");
-
-var authRoute = require('./routes/auth')(app, passport);
-console.log(authRoute);
-
-
-// var express = require('express');
-// var app = express();
-// var yourModule = require('yourFile');
-// app.get('/your_path', yourModule.yourFunction);
-=======
->>>>>>> ef6f7b64c9006b444d31001ba2e3cc299ab55b4b
 
 var PORT = process.env.PORT || 3000;
 
