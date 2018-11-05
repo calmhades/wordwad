@@ -19,9 +19,6 @@ module.exports = function(expressApp) {
     expressApp.use(passport.session());
 
     //Initialize authentication specific routes. This needs to be changed to match your configs
-    // so i think require the protected route whatever we name it?
-    expressApp.use(require("./routes/protected-routes")(passport));
-    
     expressApp.use(require("./routes/local-authentication-routes")(passport));
 
     return passport;

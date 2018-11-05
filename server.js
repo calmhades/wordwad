@@ -32,7 +32,7 @@ app.engine(
 app.set("view engine", "handlebars");
 
 // Forbidden route - redirects here from protected routes when not logged in
-app.get("./forbidden", (req, res) => {
+app.get("/forbidden", (req, res) => {
   res.send(403, "You are not authorized to view this page")
 });
 
@@ -43,7 +43,7 @@ const PROTECTED = require("./routes/protection");
 let protectedRoutes = require("./routes/protected-routes");
 let publicRoutes = require("./routes/public-routes");
 
-protectedRoutes.use(PROTECTED);
+//protectedRoutes.use(PROTECTED);
 
 app.use(publicRoutes);
 app.use(protectedRoutes);

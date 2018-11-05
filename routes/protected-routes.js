@@ -1,5 +1,4 @@
-let router = require("express").Router;
-let User = require("../models/user");
+let router = require("express").Router();
 
 router.use(require("./protection"));
 

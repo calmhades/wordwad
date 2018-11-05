@@ -1,4 +1,4 @@
-const router = require("express").Router
+const router = require("express").Router();
 
 const ensureLoggedIn = require("connect-ensure-login").ensureLoggedIn;
 const checkLogin = (req, res, next) => {
