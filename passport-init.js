@@ -10,7 +10,7 @@ module.exports = function(expressApp) {
 
     passport.serializeUser(serializeUser);
     passport.deserializeUser(deserializeUser);
-
+    
     expressApp.use(session);  
 
     // Initialize Passport and let Express know about it

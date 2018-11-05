@@ -7,22 +7,30 @@ router.get("/", (req,res) => {
        
     });
   
-
+router.get("/create", (req,res) => {
+  res.render("/newUser", {})
+});
+//   User.create([req.body.User], function(data) {
+//     console.log(data);
+//   })
+// }
   // Load all sotires or an individual one by ID 
-  router.get("/story/:id?", function(req, res) {
-    db.Story.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
-      res.render("browseWads", {
-        example: dbExample
-      });
+  router.get("/story", function(req, res) {
+    res.render("/browseWads", 
+      Story.findAll({})
+      .then(function(data) {
+        res.render(data);
+      })
+      );
     });
-  });
 
 
-  router.get("/authors/:id?", function(req, res) {
-    db.User.findAll({
-      where: {id: req.params.id}})
+
+  router.get("/story/:id", function(req, res) {
+    Story.findAll({
+      where: {id: req.params.creatorID}})
       .then(function(authors) {
-        res.render("browseWads", {
+        res.render("/browseWads", {
           author: authors
         });
       })
