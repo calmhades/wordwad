@@ -1,15 +1,17 @@
 <nav class="blue-grey" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">[word]:[wad]</a>
+    <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">[word]:[wad]</a>
         <ul class="right hide-on-med-and-down">
-            <li><a href="#">Create Wad</a></li>
-            <li><a href="#">Login</a></li>
-            <li><a href="#">Browse</a></li>
+            <li><a href="/newStory.handlebars">Create Wad</a></li>
+            <li><a href="/login.handlebars">Login</a></li>
+            <li><a href="/browseWads.handlebars">Browse</a></li>
         </ul>
 
         <ul id="nav-mobile" class="sidenav">
             <li><a href="#">Navbar Link</a></li>
+            {{!-- not sure where this needs to link --}}
         </ul>
         <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+        {{!-- not sure about this either --}}
     </div>
 </nav>
 <div class="section no-pad-bot grey darken-3" id="index-banner">
@@ -57,6 +59,7 @@
                     </div>
                     <div class="card-action">
                         <a href="#choice1">Choose This</a>
+                        {{!-- assuming this is correct --}}
                     </div>
                 </div>
             </div>
@@ -69,6 +72,7 @@
                     </div>
                     <div class="card-action">
                         <a href="#choice1">Choose This</a>
+                        {{!-- also assuming this is correct --}}
                     </div>
                 </div>
             </div>
@@ -96,6 +100,7 @@
                             </label>
                         </div>
                         <a href="#newSubmit">Submit</a>
+                        {{!-- not sure about this one --}}
                     </div>
                 </div>
             </div>
@@ -122,9 +127,9 @@
             <div class="col l3 s12">
                 <h5 class="white-text">links</h5>
                 <ul>
-                    <li><a class="white-text" href="#!">create</a></li>
-                    <li><a class="white-text" href="#!">browse</a></li>
-                    <li><a class="white-text" href="#!">login</a></li>
+                    <li><a class="white-text" href="/newStory.handlebars">create</a></li>
+                    <li><a class="white-text" href="/login.handlebars">login</a></li>
+                    <li><a class="white-text" href="/browseWads.handlebars">browse</a></li>
 
                 </ul>
             </div>
