@@ -37,8 +37,14 @@ module.exports = function(app) {
     });
   });
   
-  // Create a new entry 
+  
   app.post("/api/login", function(req, res) {
+    db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
+      res.json(dbExample);
+    });
+  });
+
+  app.post("/api/newUser", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
       res.json(dbExample);
     });

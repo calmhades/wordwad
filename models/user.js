@@ -1,46 +1,39 @@
+
 module.exports = function (sequelize, DataTypes) {
   // not sure if we need Sequelize or DataTypes as our second arg
   var User = sequelize.define("User", {
-    id: {
-      autoIncrement: true,
-      primaryKey: true,
-      type: DataTypes.INTEGER
-      //using the DataTypes arg instead of Sequelize because thats what the function appears to take in
-    },
-    firstName: {
-      type: DataTypes.STRING,
-      notEmpty: true
-      // not sure if notEmpty and notNull are the same thing
-    },
-    lastName: {
-      type: DataTypes.STRING,
-      notNull: true
-    },
-    email: {
-      type: DataTypes.STRING,
-      notNull: true,
-      //moved notNull: true outside of the validate object
-      validate: {
-        isEmail: true
+      firstName: DataTypes.STRING,
+      lastName: DataTypes.STRING,
+      email:{
+        type: DataTypes.STRING,
+        validate:{isEmail: true,
+                  notNull: true}
+        },
+      username: DataTypes.STRING,
+      password: DataTypes.STRING
+      }, 
+      {
+        paranoid: true
       }
-    },
-    username: {
-      type: DataTypes.STRING
-    },
-    password: {
-      type: DataTypes.STRING,
-      allowNull: false
-    },
-  });
+  );
 
-  User.associate = function (models) {
-    User.hasMany(models.Story, {
-      foreignKey: "creatorID",
-      allowNull: false
+    // Trying out validPassword Prototype 
+    User.prototype.validPassword = function(password) {
+      console.log("Password from the DB:" , this.password)
+      console.log("Password from the Client :" , password)
+      return (this.password === password)
+    };
+      
+    User.associate = function(models){
+      User.hasMany(models.Story, {
+        foreignKey: "creatorID", 
+          allowNull: false
 
-    });
+      });
+      
+    }
+    User.sync();
 
-  }
   return User;
 };
 
