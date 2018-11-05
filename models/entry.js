@@ -4,17 +4,18 @@ module.exports = function(sequelize, DataTypes) {
     });
 
     Entry.associate = function(models){
-      Entry.BelongsTo(models.Story, {
+      Entry.belongsTo(models.Story, {
         foreignKey: {
           allowNull: false
         }
       });
       Entry.hasMany(models.EntryEntry,{
-        foreightKey:{
+        foreignKey:{
           allowNull: false
         }
       });
     }
     return Entry;
+    
   };
   

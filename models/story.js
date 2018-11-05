@@ -11,7 +11,7 @@ module.exports = function(sequelize, DataTypes) {
           allowNull: false
         }
       });
-        Story.hasOne(model.Entry, {
+        Story.hasOne(models.Entry, {
         foreignKey:{
           allowNull:false
         }

@@ -4,11 +4,13 @@ var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
 var db = require("./models");
-var authRoute = require('./routes/auth.js')(app, passport);
+
 
 var app = express();
 var passport = require("passport");
 var session = require("express-session");
+
+var authRoute = require('./routes/auth.js')(app, passport);
 
 var PORT = process.env.PORT || 3000;
 
@@ -33,7 +35,7 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-require("./config/passport.js")(passport, models.user);
+require("./config/passport.js")(passport, models.User);
 
 
 
