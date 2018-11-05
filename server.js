@@ -10,7 +10,14 @@ var app = express();
 var passport = require("passport");
 var session = require("express-session");
 
-var authRoute = require('./routes/auth.js')(app, passport);
+var authRoute = require('./routes/auth')(app, passport);
+console.log(authRoute);
+
+
+// var express = require('express');
+// var app = express();
+// var yourModule = require('yourFile');
+// app.get('/your_path', yourModule.yourFunction);
 
 var PORT = process.env.PORT || 3000;
 
