@@ -1,3 +1,4 @@
+'use strict'
 var env = require("dotenv").config();
 var express = require("express");
 var bodyParser = require("body-parser");
@@ -5,23 +6,19 @@ var exphbs = require("express-handlebars");
 
 var db = require("./models");
 
-
 var app = express();
-var passport = require("passport");
-var session = require("express-session");
-
-var authRoute = require('./routes/auth.js')(app, passport);
 
 var PORT = process.env.PORT || 3000;
+
+// Setup passport
+let passport = require("./passport-init")(app);
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
-
-app.use(session({ secret: "keyboard cat", resave: true, saveUninitialized: true })); //this is the sessions secret
-app.use(passport.initialize());
-app.use(passport.session()); //persistent login sessions
+app.use(require("cookie-parser")());
+app.use(require("morgan")("combined"))
 
 // Handlebars
 app.engine(
@@ -32,10 +29,17 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+// Forbidden route - redirects here from protected routes when not logged in
+app.get("./forbidden", (req, res) => {
+  res.send(403, "You are not authorized to view this page")
+});
+
 // Routes
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
-require("./config/passport.js")(passport, models.User);
+let protectedRoutes = require("./routes/protected-routes");
+let publicRoutes = require("./routes/public-routes");
+
+app.use(publicRoutes);
+app.use(protectedRoutes);
 
 
 

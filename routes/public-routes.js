@@ -1,14 +1,17 @@
+let router = require("express").Router;
+
+router.route("/")
 var db = require("../models");
 
 
 module.exports = function(app) {
   // Load index page
-
-  app.get("/", function(req, res) {
+router.route("/").get (req,res) => {
     res.render("/index", {
       
-    })   
-    });
+    })
+       
+    };
   
 
 
@@ -40,4 +43,3 @@ module.exports = function(app) {
     
   };
 
- 
