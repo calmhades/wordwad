@@ -13,6 +13,8 @@ var PORT = process.env.PORT || 3000;
 // Setup passport
 let passport = require("./passport-init")(app);
 
+
+
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
@@ -35,8 +37,13 @@ app.get("./forbidden", (req, res) => {
 });
 
 // Routes
+
+const PROTECTED = require("./routes/protection");
+
 let protectedRoutes = require("./routes/protected-routes");
 let publicRoutes = require("./routes/public-routes");
+
+protectedRoutes.use(PROTECTED);
 
 app.use(publicRoutes);
 app.use(protectedRoutes);
