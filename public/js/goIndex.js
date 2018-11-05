@@ -4,9 +4,14 @@ var posts;
 
 //when "browse" is clicked, this is what would make all of the stories from
 //the db pop up, I think. 
-$("#every-story").on("click", function(event, data){
+$("#every-story").on("click", function(event){
   event.preventDefault();
-  
+
+ $.get("/browseWads", posts)
+ .then(function(data){
+
+
+
 {
   for (var i = 0; i < data.length; i++) {
       var storySection = $("<div>");
@@ -35,4 +40,5 @@ $("#every-story").on("click", function(event, data){
 
 
 
+})
 });

@@ -20,7 +20,22 @@ $(document).ready(function(){
           console.log(data);
       
         });
-    
+      
+        var userInfo = {
+
+        userName: $("#userName").val(),
+        password: $("#password").val(),
+        }
+        
+        $.get("/api/login", userInfo)
+        .then(function(data){
+          console.log(data);
+          if (userName === loginUser.userName && password === loginUser.password){
+            window.location.href="/index";
+          } else {
+            alert("Credentials do not match. Please try again.")
+          };
+        });
     
         
         $("#userName").val("");
