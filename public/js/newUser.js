@@ -16,7 +16,7 @@ $("#newUserSubmit").on("click", function(event){
     };
     console.log(newUser);
     
-    $.post("/api/login", newUser)
+    $.post("/api/newUser", newUser)
     .then(function(data){
       console.log(data);
   
