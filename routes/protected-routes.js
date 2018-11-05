@@ -4,16 +4,21 @@ router.use(require("./protection"));
 
 router.route("/api/entry")
     .post( (req,res) => {
-        res.json(req.user);
-    })
+        let newEntry = req.body;
+        res.json(newEntry);
+    });
 
 router.route("/api/story")
-    .post( (req,res) => res.json(req.user) )
+    .post( (req, res) => {
+        let newStory = req.body;s
+        res.json(newStory);
+    });
 
 router.route("/api/entryEntry")
-    .post( (req,res) => res.json(req.user) )
-
-
+    .get((req,res) => {
+        // we want to grab current entry id & next entry id with res.body below. 
+        res.json(res.body);
+    })
 
 
 module.exports = router;
