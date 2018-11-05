@@ -1,7 +1,11 @@
 module.exports = function(sequelize, DataTypes) {
     var Entry = sequelize.define("Entry", {
       text: DataTypes.TEXT,
-    });
+      },
+      {
+        paranoid: true
+      }
+    );
 
     Entry.associate = function(models){
       Entry.belongsTo(models.Story, {
@@ -15,6 +19,8 @@ module.exports = function(sequelize, DataTypes) {
         }
       });
     }
+    // Sync to database
+    Entry.sync();
     return Entry;
     
   };

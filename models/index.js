@@ -16,6 +16,7 @@ if (config.use_env_variable) {
     config.username,
     config.password,
     config
+    // may need to add more here to bring it in line with config.json data 
   );
 }
 
