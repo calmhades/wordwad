@@ -1,81 +1,83 @@
-
 <nav class="blue-grey" role="navigation">
-    <div class="nav-wrapper container"><a id="logo-container" href="#" class="brand-logo">[word]:[wad]</a>
-      <ul class="right hide-on-med-and-down">
-        <li><a href="#">Create Wad</a></li>
-        <li><a href="#">Login</a></li>
-        <li><a href="#">Browse</a></li>
-      </ul>
+  <div class="nav-wrapper container"><a id="logo-container" href="/" class="brand-logo">[word]:[wad]</a>
+    <ul class="right hide-on-med-and-down">
+      <li><a href="/newStory.handlebars">Create Wad</a></li>
+      <li><a href="/login.handlebars">Login</a></li>
+      <li><a href="/browseWads.handlebars">Browse</a></li>
+    </ul>
 
-      <ul id="nav-mobile" class="sidenav">
-        <li><a href="#">Navbar Link</a></li>
-      </ul>
-      <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
-    </div>
-  </nav>
-  <div class="section no-pad-bot grey darken-3" id="index-banner">
-    <div class="container">
-      <br><br>
-      <div class="center"><img src="public/img/wordwadinvert-f.png" height="100" width"500"></div>
-      <br><br>
-      <!-- <h1 class="header center white-text">What is WordWad?</h1> -->
-      <div class="row center">
-        <h5 class="header col s12 white-text">WordWad is an open-ended story creation app in the style of the old Choose-your-own-adventure books.  Users can create stories, read stories, and add to others stories.</h5>
-      </div>
-      <br><br>
-
-    </div>
+    <ul id="nav-mobile" class="sidenav">
+      <li><a href="#">Navbar Link</a></li>
+      {{!-- not sure where this needs to link --}}
+    </ul>
+    <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
+    {{!-- not sure about this either --}}
   </div>
-
-
-  <div class="container grey darken-3">
-    <div class="section">
-
-      <!--   Icon Section   -->
-      <div class="row">
-        <div class="col s12 m6">
-          <div class="icon-block">
-            <h2 class="center blue-grey-text"><i class="material-icons">create</i></h2>
-            <h5 class="center white-text">Start writing your next wad!</h5>
-
-          </div>
-        </div>
-
-        <div class="col s12 m6">
-          <div class="icon-block">
-            <h2 class="center blue-grey-text"><i class="material-icons">remove_red_eye</i></h2>
-            <h5 class="center white-text">Browse wads</h5>
-
-          </div>
-        </div>
-
-        
-      </div>
-
+</nav>
+<div class="section no-pad-bot grey darken-3" id="index-banner">
+  <div class="container">
+    <br><br>
+    <div class="center"><img src="public/img/wordwadinvert-f.png" height="100" width"500"></div>
+    <br><br>
+    <!-- <h1 class="header center white-text">What is WordWad?</h1> -->
+    <div class="row center">
+      <h5 class="header col s12 white-text">WordWad is an open-ended story creation app in the style of the old
+        Choose-your-own-adventure books. Users can create stories, read stories, and add to others stories.</h5>
     </div>
     <br><br>
+
+  </div>
+</div>
+
+
+<div class="container grey darken-3">
+  <div class="section">
+
+    <!--   Icon Section   -->
+    <div class="row">
+      <div class="col s12 m6">
+        <div class="icon-block">
+          <h2 class="center blue-grey-text"><i class="material-icons">create</i></h2>
+          <h5 class="center white-text">Start writing your next wad!</h5>
+
+        </div>
+      </div>
+
+      <div class="col s12 m6">
+        <div class="icon-block">
+          <h2 class="center blue-grey-text"><i class="material-icons">remove_red_eye</i></h2>
+          <h5 class="center white-text">Browse wads</h5>
+
+        </div>
+      </div>
+
+
+    </div>
+
+  </div>
+  <br><br>
+</div>
+
+<footer class="page-footer grey darken-3">
+  <div class="container">
+    <div class="row">
+      <div class="col l6 s12">
+        <h5 class="white-text">[word]:[wad] © 2018</h5>
+
+
+
+      </div>
+      <div class="col l3 s12">
+        <h5 class="white-text">links</h5>
+        <ul>
+          <li><a class="white-text" href="/newStory.handlebars">create</a></li>
+          <li><a class="white-text" href="/login.handlebars">login</a></li>
+          <li><a class="white-text" href="/browseWads.handlebars">browse</a></li>
+
+        </ul>
+      </div>
+
+    </div>
   </div>
 
-  <footer class="page-footer grey darken-3">
-    <div class="container">
-      <div class="row">
-        <div class="col l6 s12">
-          <h5 class="white-text">[word]:[wad] © 2018</h5>
-          
-
-
-        </div>
-        <div class="col l3 s12">
-          <h5 class="white-text">links</h5>
-          <ul>
-            <li><a class="white-text" href="#!">create</a></li>
-            <li><a class="white-text" href="#!">browse</a></li>
-            <li><a class="white-text" href="#!">login</a></li>
-            
-          </ul>
-        </div>
-        
-      </div>
-    </div>
-    
-  </footer>
+</footer>
