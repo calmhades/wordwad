@@ -11,11 +11,12 @@ const checkLogin = (req, res, next) => {
 module.exports = function(passport) {
     
     router.get("/login", (req, res) => {
-        res.send(`
+		res.render("login")
+		res.send(`
                     <form method="post">
                         <input name = "username"/>
                         <input name = "password"/>
-                        <input type = "submit/>
+                        <input type = "submit"/>
                     </form> 
                 `);
     });

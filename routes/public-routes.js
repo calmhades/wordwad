@@ -3,7 +3,7 @@ let router = require("express").Router();
 
   // Load index page
 router.get("/", (req,res) => {
-    res.render("/index", {});
+    res.render("/", {});
        
     });
   
