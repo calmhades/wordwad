@@ -7,9 +7,11 @@ router.get("/", (req,res) => {
        
     });
   
-router.get("/create", (req,res) => {
-  res.render("newUser", {})
-});
+router.route("/create")
+  .get( (req,res) => {
+    res.render("newUser", {})
+  })
+  .post()
 //   User.create([req.body.User], function(data) {
 //     console.log(data);
 //   })
