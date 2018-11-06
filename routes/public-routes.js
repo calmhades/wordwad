@@ -17,8 +17,7 @@ router.get("/create", (req,res) => {
   // Load all sotires or an individual one by ID 
 router.get("/story", function(req, res) {
     
-        res.render("browseWads",{});
-     
+        res.render("browseWads",{});  
     });
 
 
