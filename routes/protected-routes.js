@@ -17,7 +17,13 @@ router.route("/api/story")
 router.route("/api/entryEntry")
     .get((req, res) => {
         // we want to grab current entry id & next entry id with res.body below. 
-        res.json(res.body);
+        // res.json(res.body);
+    })
+
+router.route("/newStory")
+    .get((req, res)=>{
+        res.render("newStory")
+
     })
 
 
