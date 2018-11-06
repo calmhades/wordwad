@@ -35,9 +35,9 @@ router.get("/story/:id", function(req, res) {
 
 
 router.post("/api/users",(req,res)=>{
-  console.log("___________________________________________")
-  console.log("this just happened.  Added user to Api that is.")
-  console.log(req.body)
+  // console.log("___________________________________________")
+  // console.log("this just happened.  Added user to Api that is.")
+  // console.log(req.body)
   db.User.create(req.body).then(function(dbUser){
     res.json(dbUser);
   });

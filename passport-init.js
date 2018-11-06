@@ -37,9 +37,9 @@ const serializeUser = function (user, done) {
 
 //  deserializeUser is called when resuming a session
 //  it should get your user information from the database
-const deserializeUser = function(saveId, done) {
+const deserializeUser = function(savedId, done) {
     
-    console.log("Deserializing user: ", saveId)
+    console.log("Deserializing user: ", savedId)
      /*
     In this case, the User model has the information about our user
     Remember that we saved the id to the cookie in serializeUser, so the savedId passed to us above is the id we need to search
@@ -47,7 +47,7 @@ const deserializeUser = function(saveId, done) {
     We just need to match the id column in the database to savedId
     */ 
    db.User.findOne({
-       where: {id:saveId},
+       where: {id:savedId},
        attributes: {
            exclude: ["password"] //user has the password in it, let's filter that out
        }
