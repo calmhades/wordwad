@@ -1,7 +1,7 @@
 let passport = require("passport");
 let session = require("express-session")({secret: "nsjfjadjeh83294q72hfdsheurhfdusf" , resave: false, saveUninitialized: false})
 
-let User = require("./models/user");
+let db = require("./models");
 
 module.exports = function(expressApp) {
     // Initializing local authentication strategy 
@@ -36,16 +36,17 @@ const serializeUser = function (user, done) {
 
 //  deserializeUser is called when resuming a session
 //  it should get your user information from the database
-const deserializeUser = function(saveId, done) {
-    console.log("Deserializing user: ", id)
+const deserializeUser = function(savedId, done) {
+    
+    console.log("Deserializing user: ", savedId)
      /*
     In this case, the User model has the information about our user
     Remember that we saved the id to the cookie in serializeUser, so the savedId passed to us above is the id we need to search
     Since we are using MySQL, use Sequelize to get the user by id
     We just need to match the id column in the database to savedId
     */ 
-   User.findOne({
-       where: {id:saveId},
+   db.User.findOne({
+       where: {id:savedId},
        attributes: {
            exclude: ["password"] //user has the password in it, let's filter that out
        }
