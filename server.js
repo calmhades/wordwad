@@ -10,8 +10,6 @@ var app = express();
 
 var PORT = process.env.PORT || 3000;
 
-// Setup passport
-let passport = require("./passport-init")(app);
 
 
 
@@ -21,6 +19,9 @@ app.use(bodyParser.json());
 app.use(express.static("public"));
 app.use(require("cookie-parser")());
 app.use(require("morgan")("combined"))
+
+// Setup passport
+let passport = require("./passport-init")(app);
 
 // Handlebars
 app.engine(

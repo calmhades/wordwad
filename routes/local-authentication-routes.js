@@ -11,18 +11,17 @@ const checkLogin = (req, res, next) => {
 module.exports = function(passport) {
     
     router.get("/login", (req, res) => {
-		res.render("login", {
-			// 
-		})
+		res.render("login", {});
     });
     
-    router.post('/login',
+	router.post('/login',
 		passport.authenticate('local'), //this is the magic
-	  	function(req, res) {
+		function(req, res) {
+			console.log(req.body);
+			console.log(res);
 		    // If this function gets called, authentication was successful.
 		    // req.user contains the authenticated user.
 			//res.sendFile()
-			
 		    res.json({success:(req.user? "Yes":"No"), user:req.user});
 		}
 	)

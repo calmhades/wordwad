@@ -10,21 +10,16 @@ $(document).ready(function(){
           username: $("#userName").val(),
           password: $("#password").val(),
           }
+
         console.log(userInfo);
 
           
-        $.get("/login", userInfo)
-        .then(function(req, res){
-          // console.log("Data is: +++++++++++++" + data);
-          console.log("username " + userInfo.username);
-          console.log("password " + userInfo.password);
-          console.log(req.body.username)
-          if (userName === userInfo.username && password === userInfo.password){
-            window.location.href="/index";
-          } else {
-            alert("Credentials do not match. Please try again.")
-          };
+        $.post("/login", userInfo).then(function(data) {
+          console.log(data);
         });
+          
+
+        
     
         $("#userName").val("");
         $("#password").val("");
