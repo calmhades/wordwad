@@ -3,12 +3,15 @@
     <ul class="right hide-on-med-and-down">
       <li><a href="/newStory">Create Wad</a></li>
       <li><a href="/login">Login</a></li>
+      <li><a href="/create">New User</a></li>
       <li><a href="/browseWads">Browse</a></li>
     </ul>
 
     <ul id="nav-mobile" class="sidenav">
-      <li><a href="#">Navbar Link</a></li>
-      {{!-- not sure where this needs to link --}}
+      <li><a href="/newStory">Create Wad</a></li>
+      <li><a href="/login">Login</a></li>
+      <li><a href="/create">New User</a></li>
+      <li><a href="/browseWads">Browse</a></li>
     </ul>
     <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
     {{!-- not sure about this either --}}
@@ -17,7 +20,7 @@
 <div class="section no-pad-bot grey darken-3" id="index-banner">
   <div class="container">
     <br><br>
-    <div class="center"><img src="/img/wordwadinvert-f.png" height="100" width"500"></div>
+    <div class="center"><img class="responsive-img" src="/img/wordwadinvert-f.png" height="100" width"500"></div>
     <br><br>
     <!-- <h1 class="header center white-text">What is WordWad?</h1> -->
     <div class="row center">
@@ -37,7 +40,7 @@
     <div class="row">
       <div class="col s12 m6">
         <div class="icon-block">
-          <a href="newStory"><h2 class="center blue-grey-text"><i class="material-icons">create</i></h2></a>
+          <a href="newStory.handlebars"><h2 class="center blue-grey-text"><i class="material-icons">create</i></h2></a>
           <h5 class="center white-text">Start writing your next wad!</h5>
 
         </div>
@@ -45,7 +48,7 @@
 
       <div class="col s12 m6">
         <div class="icon-block">
-          <a href="browseWads"><h2 class="center blue-grey-text"><i class="material-icons">remove_red_eye</i></h2></a>
+          <a href="browseWads.handlebars"><h2 class="center blue-grey-text"><i class="material-icons">remove_red_eye</i></h2></a>
           <h5 class="center white-text">Browse wads</h5>
 
         </div>
@@ -61,23 +64,8 @@
 <footer class="page-footer grey darken-3">
   <div class="container">
     <div class="row">
-      <div class="col l6 s12">
-        <h5 class="white-text">[word]:[wad] © 2018</h5>
-
-
-
+        <h5 class="center white-text">[word]:[wad] © 2018</h5>
       </div>
-      <div class="col l3 s12">
-        <h5 class="white-text">links</h5>
-        <ul>
-          <li><a class="white-text" href="newStory">create</a></li>
-          <li><a class="white-text" href="login">login</a></li>
-          <li><a class="white-text" href="browseWads">browse</a></li>
-
-        </ul>
-      </div>
-
     </div>
   </div>
-
 </footer>

@@ -15,15 +15,15 @@
 
 /* label color */
 .input-field label {
-  color: #ffffff;
+  color: #607d8b;
 }
 /* label focus color */
 .input-field input[type=text]:focus + label {
-  color: #ffffff;
+  color: #607d8b;
 }
 /* label underline focus color */
 .input-field input[type=text]:focus {
-  border-bottom: 1px solid #ffffff;
+  border-bottom: 1px solid #607d8b;
   box-shadow: 0 1px 0 0 #000;
 }
 /* valid color */
@@ -38,5 +38,25 @@
 }
 /* icon prefix focus color */
 .input-field .prefix.active {
-  color: #000;
+  color: #607d8b;
+}
+
+textarea.materialize-textarea:focus:not([readonly]) {
+  border-bottom: 1px solid #607d8b;
+  -webkit-box-shadow: 0 1px 0 0 #607d8b;
+          box-shadow: 0 1px 0 0 #607d8b;
+}
+
+textarea.materialize-textarea:focus:not([readonly]) + label {
+  color: #607d8b;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+main {
+  flex: 1 0 auto;
 }
