@@ -1,14 +1,14 @@
 let Strategy = require("passport-local").Strategy;
-let User = require("../models/user");
+let db = require("../models");
 
 const strategy = new Strategy(
-    {
-        usernameField: "email",
-        passwordField: "password"
-    },
-    { sessions: true },
+    // {
+    //     usernameField: "username",
+    //     passwordField: "password"
+    // },
+    // { sessions: true },
     function (username, password, done) {
-        User.findOne({
+        db.User.findOne({
             where: { username: username }
         }).then(
             function (DBuser){

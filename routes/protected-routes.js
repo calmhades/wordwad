@@ -10,12 +10,12 @@ router.route("/api/entry")
 
 router.route("/api/story")
     .post( (req, res) => {
-        let newStory = req.body;s
+        let newStory = req.body;
         res.json(newStory);
     });
 
 router.route("/api/entryEntry")
-    .get((req,res) => {
+    .get((req, res) => {
         // we want to grab current entry id & next entry id with res.body below. 
         res.json(res.body);
     })
