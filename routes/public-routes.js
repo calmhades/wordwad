@@ -7,11 +7,17 @@ router.get("/", (req,res) => {
        
     });
   
-router.route("/create")
-  .get( (req,res) => {
+router.get("/create", (req,res) => {
     res.render("newUser", {})
-  })
-  .post()
+  });
+  
+router.post("/api/create", (req, res) => {
+    let newUser = req.body;
+    User.create(newUser).then(function(addUser) {
+      res.json(addUser);
+    });
+});
+
 //   User.create([req.body.User], function(data) {
 //     console.log(data);
 //   })

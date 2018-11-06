@@ -5,7 +5,7 @@ $(document).ready(function(){
 //newUserSubmit
 $("#newUserSubmit").on("click", function(event){
     event.preventDefault();
-  
+    
     var newUser = {
       first_name: $("#first_name").val(),
       last_name: $("#last_name").val(),
