@@ -8,18 +8,7 @@ router.get("/", (req,res) => {
     });
   
 router.get("/create", (req,res) => {
-<<<<<<< HEAD
-    res.render("newUser", {})
-  });
-  
-router.post("/api/create", (req, res) => {
-    let newUser = req.body;
-    User.create(newUser).then(function(addUser) {
-      res.json(addUser);
-    });
-=======
   res.render("newUser")
->>>>>>> bb3776174dcc5ec9751b38e513b643fbede4d1a8
 });
 
 //   User.create([req.body.User], function(data) {
