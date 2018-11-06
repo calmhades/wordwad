@@ -20,5 +20,11 @@ router.route("/api/entryEntry")
         // res.json(res.body);
     })
 
+router.route("/newStory")
+    .get((req, res)=>{
+        res.render("newStory")
+
+    })
+
 
 module.exports = router;
