@@ -11,7 +11,9 @@ const checkLogin = (req, res, next) => {
 module.exports = function(passport) {
     
     router.get("/login", (req, res) => {
-		res.render("login", {})
+		res.render("login", {
+			// 
+		})
     });
     
     router.post('/login',
