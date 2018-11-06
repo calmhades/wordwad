@@ -1,14 +1,14 @@
 let router = require("express").Router();
-
+var db = require("../models");
 
   // Load index page
 router.get("/", (req,res) => {
-    res.render("index",{});
+    res.render("index");
        
     });
   
 router.get("/create", (req,res) => {
-  res.render("newUser", {})
+  res.render("newUser")
 });
 //   User.create([req.body.User], function(data) {
 //     console.log(data);
@@ -23,13 +23,31 @@ router.get("/story", function(req, res) {
 
 
 router.get("/story/:id", function(req, res) {
-    Story.findAll({
+    db.Story.findAll({
       where: {id: req.params.creatorID}})
       .then(function(authors) {
-        res.render("/browseWads", {
+        res.render("browseWads", {
           author: authors
         });
       })
     });
+
+
+router.post("/api/users",(req,res)=>{
+  console.log("___________________________________________")
+  console.log("this just happened.  Added user to Api that is.")
+  console.log(req.body)
+  db.User.create(req.body).then(function(dbUser){
+    res.json(dbUser);
+  });
+});
+    
+// router.post("/api/users",function(req,res){
+//   console.log("router.post is working")
+//   console.log(req.body)
+//     User.create(req.body).then(function(newUser){
+//       res.json(newUser);
+//     });
+// })
     
 module.exports = router;
