@@ -19,8 +19,7 @@ module.exports = function (sequelize, DataTypes) {
 
     // Trying out validPassword Prototype 
     User.prototype.validPassword = function(password) {
-      console.log("Password from the DB:" , this.password)
-      console.log("Password from the Client :" , password)
+  
       return (this.password === password)
     };
       
