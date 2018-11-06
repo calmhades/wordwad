@@ -13,7 +13,7 @@ module.exports = function(sequelize, DataTypes) {
     // need associations - CREATORID to user foreign key, ROOT ENTRY to Entry foreign key
     Story.associate = function(models){
       Story.belongsTo(models.User, {
-        foreignKey: {as: "creatorID"},
+          foreignKey: {as: "creatorID"},
           allowNull: false
       });
 

@@ -24,6 +24,7 @@ module.exports = function(passport) {
 			//res.sendFile()
 		    res.json({success:(req.user? "Yes":"No"), user:req.user});
 		}
+		
 	)
 
 
