@@ -10,6 +10,7 @@ router.get("/", (req,res) => {
 router.get("/create", (req,res) => {
   res.render("newUser")
 });
+
 //   User.create([req.body.User], function(data) {
 //     console.log(data);
 //   })
