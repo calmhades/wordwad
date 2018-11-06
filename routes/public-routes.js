@@ -3,7 +3,7 @@ let router = require("express").Router();
 
   // Load index page
 router.get("/", (req,res) => {
-    res.render("/", {});
+    // res.render("/", {});
     res.render("index",{});
        
     });
@@ -33,5 +33,7 @@ router.get("/story/:id", function(req, res) {
         });
       })
     });
+
+
     
 module.exports = router;
