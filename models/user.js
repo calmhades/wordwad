@@ -7,7 +7,7 @@ module.exports = function (sequelize, DataTypes) {
       email:{
         type: DataTypes.STRING,
         validate:{isEmail: true,
-                  notNull: true}
+                 }
         },
       username: DataTypes.STRING,
       password: DataTypes.STRING
