@@ -7,7 +7,7 @@ $(document).ready(function(){
       
         var loginUser = {
         
-          userName: $("#userName").val(),
+          username: $("#userName").val(),
           password: $("#password").val(),
         
           
@@ -22,14 +22,14 @@ $(document).ready(function(){
       
         var userInfo = {
 
-        userName: $("#userName").val(),
+        username: $("#userName").val(),
         password: $("#password").val(),
         }
         
         $.get("/api/login", userInfo)
         .then(function(data){
           console.log(data);
-          if (userName === loginUser.userName && password === loginUser.password){
+          if (userName === loginUser.username && password === loginUser.password){
             window.location.href="/index";
           } else {
             alert("Credentials do not match. Please try again.")
@@ -71,7 +71,7 @@ $(document).ready(function(){
         $("#password").val("");
         $("#email").val("");   
     });
-
+      
     
     
     //from addChoice.js file.
