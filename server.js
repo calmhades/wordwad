@@ -34,7 +34,7 @@ app.set("view engine", "handlebars");
 
 // Forbidden route - redirects here from protected routes when not logged in
 app.get("/forbidden", (req, res) => {
-  res.send(403, "You are not authorized to view this page")
+  res.render("forbidden")
 });
 
 // Routes
