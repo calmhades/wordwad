@@ -91,7 +91,8 @@ $("#add-entry").on("click", function(event){
 
     var newEntry = 
     {
-        body_text: $("#body-text")
+      text: $("#body-text"),
+      
     }
     
     $.post("/api/entry", newEntry)
