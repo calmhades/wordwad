@@ -28,9 +28,16 @@ router.route("/api/story")
 
 router.route("/api/entryEntry")
     .get((req, res) => {
+        let EntryEntry = {
+            currentEntryID: req.body.id,
+        }
+
+        db.EntryEntry.create(EntryEntry).then(function(dbEntryEntry){
+            res.json(dbEntryEntry)
+        });
         // we want to grab current entry id & next entry id with res.body below. 
         // res.json(res.body);
-    })
+    });
 
 router.route("/newStory")
     .get((req, res)=>{

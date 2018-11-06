@@ -1,7 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var EntryEntry = sequelize.define("EntryEntry", {
-        currentEntryId: DataTypes.INTEGER,
-        nextEntryID: DataTypes.INTEGER
+        
         },
         {
             paranoid: true
@@ -11,8 +10,9 @@ module.exports = function(sequelize, DataTypes) {
 
     EntryEntry.associate = function(models){
         
-        EntryEntry.belongsTo(models.Entry, {
-            foreignKey: {as: "currentEntryId"},
+        EntryEntry.belongsTo(models.Entry, 
+            {
+            as: "currentEntryId",
                 allowNull: false
         });
 
