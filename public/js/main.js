@@ -141,8 +141,12 @@ $("#add-entry").on("click", function(event){
     var newStory = {
       Title: $("#title").val().trim(),
       Genre: $("#genre").val().trim(),
+    
   
     };
+    var firstEntr = {
+      text: $("#newStory").val().trim()
+    }
 
     $.post("/api/story", newStory)
     .then(function(data){
@@ -150,20 +154,9 @@ $("#add-entry").on("click", function(event){
   
     });
 
-    $.get("/api/story", function(data) {
-      JSON.parse(data);
-      console.log("DATA HERE DATA HERE DATA HERE" + data[0])
-    });
-
-        var firstEntry = {
-        text: $("#newStory").val().trim(),
-        rootId: ""
-      }
-
-      $.post("/api/entry", firstEntry)
-      .then(function(data) {
-        console.log(data)
-      })
+    $.post("/api/entry", firstEntr)
+    .then(function(data){console.log(data);
+    })
 
 
    
