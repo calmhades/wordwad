@@ -10,18 +10,18 @@ module.exports = function(sequelize, DataTypes) {
 
     Entry.associate = function(models){
       Entry.belongsTo(models.Story, {
-        as : "rootId",
-          allowNull: false
+          foreignKey: "rootId",
+          allowNull: true
       });
       Entry.hasMany(models.EntryEntry,
         {
-        foreignKey:{
+        foreignKey: "currentEntryId",
           allowNull: false
-        }
+        
       });
     }
     // Sync to database
-    Entry.sync();
+    // Entry.sync();
     return Entry;
     
   };

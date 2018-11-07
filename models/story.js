@@ -17,13 +17,12 @@ module.exports = function(sequelize, DataTypes) {
       });
 
         Story.hasOne(models.Entry, {
-        foreignKey:{
-          allowNull:false
-        }
+          foreignKey: "rootId",
+          allowNull: false
       });
     }
     // Syncing to database
-    Story.sync();
+    // Story.sync();
 
     return Story;
   };

@@ -23,7 +23,7 @@ module.exports = function(sequelize, DataTypes) {
             })
     };
 
-    EntryEntry.sync();
+    // EntryEntry.sync();
     
     return EntryEntry;
     
