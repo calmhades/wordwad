@@ -17,21 +17,23 @@ router.get("/create", (req,res) => {
 // }
   // Load all stories or an individual one by ID 
 router.get("/story", function(req, res) {
-    
-        res.render("browseWads");  
+        db.Story.findAll({})
+        .then(function(data) {
+        res.render("browseWads", {Story: data})
+      });  
     });
 
 
 
-router.get("/story/:id", function(req, res) {
-    db.Story.findAll({
-      where: {id: req.params.creatorID}})
-      .then(function(authors) {
-        res.render("browseWads", {
-          author: authors
-        });
-      })
-    });
+// router.get("/story/:id", function(req, res) {
+//     db.Story.findAll({
+//       where: {id: req.params.creatorID}})
+//       .then(function(authors) {
+//         res.render("browseWads", {
+//           author: authors
+//         });
+//       })
+//     });
 
 
 router.post("/api/users",(req,res)=>{

@@ -12,13 +12,13 @@ module.exports = function(sequelize, DataTypes) {
         
         EntryEntry.belongsTo(models.Entry, 
             {
-            as: "currentEntryId",
+            foreignKey: "currentEntryId",
                 allowNull: false
         });
 
         //not sure about this association.
         EntryEntry.belongsTo(models.EntryEntry,{
-            foreignKey: {as: "nextEntryID"},
+                foreignKey: "nextEntryID",
                 allowNull: true
             })
     };

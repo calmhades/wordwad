@@ -25,9 +25,8 @@ module.exports = function (sequelize, DataTypes) {
       
     User.associate = function(models){
       User.hasMany(models.Story, {
-        foreignKey: { 
-          allowNull: false
-        }
+        foreignKey: "creatorID",
+        allowNull: false
       });
       
     }

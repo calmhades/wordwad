@@ -35,29 +35,15 @@
           <th>Contributors</th>
         </tr>
       </thead>
-
+        {{#each Story}}
+          <tr>
+            <td>{{this.Title}}</td>
+            <td>{{this.Genre}}</td>
+            <td>{{this.creatorID}}</td>
+          </tr>
+        {{/each}}
       <tbody>
-        <tr>
-          <td>wadWars</td>
-          <td>ryen</td>
-          <td>horror</td>
-          <td>11.2.2018</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>wadWars</td>
-          <td>ryen</td>
-          <td>horror</td>
-          <td>11.2.2018</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>wadWars</td>
-          <td>ryen</td>
-          <td>horror</td>
-          <td>11.2.2018</td>
-          <td>1</td>
-        </tr>
+        
       </tbody>
     </table>
 
