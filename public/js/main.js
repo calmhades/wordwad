@@ -18,9 +18,6 @@ $(document).ready(function(){
           console.log(data);
         });
           
-
-        
-    
         $("#userName").val("");
         $("#password").val("");
       });

@@ -1,7 +1,7 @@
 module.exports = function(sequelize, DataTypes) {
     var Entry = sequelize.define("Entry", {
       text: DataTypes.TEXT,
-      rootId: DataTypes.INTEGER
+    
       },
       {
         paranoid: true
@@ -10,7 +10,7 @@ module.exports = function(sequelize, DataTypes) {
 
     Entry.associate = function(models){
       Entry.belongsTo(models.Story, {
-        foreignKey: {as : "rootId"},
+        as : "rootId",
           allowNull: false
       });
       Entry.hasMany(models.EntryEntry,
