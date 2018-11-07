@@ -21,6 +21,7 @@ router.route("/api/story")
         let story = {
             Title: req.body.Title,
             Genre: req.body.Genre,
+            creatorID: req.user.id
         }
 
 

@@ -17,8 +17,8 @@ module.exports = function(passport) {
 	router.post('/login',
 		passport.authenticate('local'), //this is the magic
 		function(req, res) {
-			console.log(req.body);
-			console.log(res);
+			// console.log(req.body);
+			// console.log(res);
 		    // If this function gets called, authentication was successful.
 		    // req.user contains the authenticated user.
 			//res.sendFile()

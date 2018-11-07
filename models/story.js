@@ -18,11 +18,11 @@ module.exports = function(sequelize, DataTypes) {
 
         Story.hasOne(models.Entry, {
           foreignKey: "rootId",
-          allowNull: false
+          allowNull: false  
       });
     }
     // Syncing to database
-    // Story.sync();
+    Story.sync();
 
     return Story;
   };
