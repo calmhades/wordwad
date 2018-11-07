@@ -151,18 +151,19 @@ $("#add-entry").on("click", function(event){
     });
 
     $.get("/api/story", function(data) {
-      console.log("DATA HERE DATA HERE DATA HERE" + data)
+      JSON.parse(data);
+      console.log("DATA HERE DATA HERE DATA HERE" + data[0])
     });
 
-      //   var firstEntry = {
-      //   text: $("#newStory").val().trim(),
-      //   rootId: ""
-      // }
+        var firstEntry = {
+        text: $("#newStory").val().trim(),
+        rootId: ""
+      }
 
-      // $.post("/api/entry", firstEntry)
-      // .then(function(data) {
-      //   console.log(data)
-      // })
+      $.post("/api/entry", firstEntry)
+      .then(function(data) {
+        console.log(data)
+      })
 
 
    
