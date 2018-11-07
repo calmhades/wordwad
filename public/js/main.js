@@ -143,8 +143,12 @@ $("#add-entry").on("click", function(event){
     var newStory = {
       Title: $("#title").val().trim(),
       Genre: $("#genre").val().trim(),
+    
   
     };
+    var firstEntr = {
+      text: $("#newStory").val().trim()
+    }
 
 
     $.post("/api/story", newStory)
@@ -152,6 +156,10 @@ $("#add-entry").on("click", function(event){
       console.log(data);
   
     });
+
+    $.post("/api/entry", firstEntr)
+    .then(function(data){console.log(data);
+    })
 
 
    
