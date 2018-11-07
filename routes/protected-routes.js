@@ -5,9 +5,10 @@ router.use(require("./protection"));
 
 router.route("/api/entry")
     .post( (req,res) => {
+        
         let entry = {
             text: req.body.text,
-            entryParentId: req.body.entryParentId
+            rootId: req.body.rootId
             // dynamically add data attribute to each element (as entryParentId) data-entryParentId = (value from db),
             // when you hit new entry - will use jquery to strip off data parent id property & use as entryParentId
             // if want we can have that sent back, and re-render page with freahly created entry 
@@ -15,6 +16,16 @@ router.route("/api/entry")
     });
 
 router.route("/api/story")
+    .get( (req,res) => {
+        db.Story.findAll({
+            limit: 1,
+            order: [["createdAt", "DESC"]]
+        })
+        .then(function(storyData) {
+            res.json(storyData)
+        })
+    })
+
     .post( (req, res) => {
         // let newStory = req.body;
 
