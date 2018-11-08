@@ -23,9 +23,6 @@ $(document).ready(function(){
       });
 
 
-   
-
-
     //This needs to be changed to submit if it is a form.
     $("#newUserForm").on("submit", function(event){
         console.log("New User has been submitted")
@@ -54,15 +51,12 @@ $(document).ready(function(){
         $("#email").val("");   
     });
 
-    
-    
     //from addChoice.js file.
     $("#newChoice").on("click", function(event){
         event.preventDefault();
       
         var newChoice = {
-          body_text: $("#newChoice").val(),
-          
+          body_text: $("#newChoice").val(), 
         };
         console.log(newChoice);
         
@@ -71,25 +65,17 @@ $(document).ready(function(){
           console.log(data);
       
         });
-    
         $("#newChoice").val("");
-        
       });
 
       
-
-
-
 //add entry click handler from createEntry.js
 $("#add-entry").on("click", function(event){
     event.preventDefault();
     
-    let body_text;
-
     var newEntry = 
     {
       text: $("#body-text"),
-      
     }
     
     $.post("/api/entry", newEntry)
@@ -100,8 +86,6 @@ $("#add-entry").on("click", function(event){
     $("#body-text").val("");
    
   });
-
-
 
 
   //from goIndex.js
@@ -119,15 +103,12 @@ $("#add-entry").on("click", function(event){
         storySection.attr("id", "story-well-" + i);
         $("#story-section").append(storySection);
     
-    
-       
         $("#story-well-" + i).append("<h2>" + data[i].title + "</h2>");
         $("#story-well-" + i).append("<h3>Genre: " + data[i].genre + "</h3>");
         $("#story-well-" + i).append("<h3>ID: " + data[i].root_entry_id + "</h3>");
         $("#story-well-" + i).append("<h3>" + data[i].newStory + "</h3>");
-       
+    
             }   
-        
         });
     });
 
@@ -137,7 +118,12 @@ $("#add-entry").on("click", function(event){
     event.preventDefault();
   
     console.log("this is working")
+<<<<<<< HEAD
     
+=======
+
+
+>>>>>>> master
     var newStory = {
       Title: $("#title").val().trim(),
       Genre: $("#genre").val().trim(),
@@ -145,56 +131,32 @@ $("#add-entry").on("click", function(event){
   
     };
     var firstEntr = {
-      text: $("#newStory").val().trim()
+      text: $("#newStory").val().trim(),
+      rootId: 0
     }
+<<<<<<< HEAD
+=======
+    
+>>>>>>> master
 
     $.post("/api/story", newStory)
     .then(function(data){
-      console.log(data);
-  
+      firstEntr.rootId = data.id;
+      console.log(firstEntr);  
     });
 
+    console.log(firstEntr);
+
     $.post("/api/entry", firstEntr)
-    .then(function(data){console.log(data);
+    .then(function(data){
+      console.log(data)
     })
 
-
-   
     $("#title").val("");
     $("#genre").val("");
     $("#newStory").val("");
-
-    //NEEDS WORK
-    // var handleStorySubmit = function(event) {
-    // event.preventDefault();
-    // //Probably need to alter these names
-    // var story = {
-    //   title: storybegins.title.val().trim(),
-    //   genre: storybegins.genre.val().trim(),
-    //   root_entry_id: storybegins.root_entry_id.val().trim(),
-    //   newStory: storybegins.newStory.val().trim()
-    // };
-  
-
-    // //Probably need to alter these names
-    // if (!(storybegins.title && storybegins.genre && storybegin.root_entry_id)) {
-    //   alert("You must enter title, genre, and body text!");
-    //   return;
-    //     }
-    // };
     });
-
-
-    //end of script
 });
-
-
-
-
-
-
-
-
 
 
 
