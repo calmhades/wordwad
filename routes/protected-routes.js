@@ -7,7 +7,7 @@ router.route("/api/entry")
     .post( (req,res) => {
         let entry = {
             text: req.body.text,
-            entryParentId: req.body.entryParentId
+            entryParentId: req.body.rootId
             // dynamically add data attribute to each element (as entryParentId) data-entryParentId = (value from db),
             // when you hit new entry - will use jquery to strip off data parent id property & use as entryParentId
             // if want we can have that sent back, and re-render page with freahly created entry 
@@ -25,7 +25,8 @@ router.route("/api/story")
         let story = {
             Title: req.body.Title,
             Genre: req.body.Genre,
-            creatorID: req.user.id
+
+
         }
 
 
@@ -34,19 +35,6 @@ router.route("/api/story")
             res.json(dbStory)
         })
     });
-
-// router.route("/api/entryEntry")
-//     .get((req, res) => {
-//         let EntryEntry = {
-//             currentEntryID: req.body.id,
-//         }
-
-//         db.EntryEntry.create(EntryEntry).then(function(dbEntryEntry){
-//             res.json(dbEntryEntry)
-//         });
-//         // we want to grab current entry id & next entry id with res.body below. 
-//         // res.json(res.body);
-//     });
 
 router.route("/newStory")
     .get((req, res)=>{
