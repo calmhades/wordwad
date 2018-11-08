@@ -29,17 +29,16 @@
       <thead>
         <tr>
           <th>Title</th>
-          <th>Author</th>
           <th>Genre</th>
           <th>Created</th>
-          <th>Contributors</th>
+       
         </tr>
       </thead>
         {{#each Story}}
-          <tr>
+          <tr id = stories dataId = {{this.id}}>
             <td>{{this.Title}}</td>
             <td>{{this.Genre}}</td>
-            <td>{{this.creatorID}}</td>
+            <td>{{this.createdAt}}</td>
           </tr>
         {{/each}}
       <tbody>
