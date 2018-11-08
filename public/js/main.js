@@ -149,12 +149,19 @@ $("#add-entry").on("click", function(event){
     $("#genre").val("");
     $("#newStory").val("");
     });
+
+
+
+
+$(document).on('click','#stories', function(){
+
+  window.location = "/storyFrag";
+console.log("you clicked on a story")
+
+
+
 });
 
 
 
-
-
-
-
-
+});
