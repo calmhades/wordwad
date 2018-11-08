@@ -118,12 +118,8 @@ $("#add-entry").on("click", function(event){
     event.preventDefault();
   
     console.log("this is working")
-<<<<<<< HEAD
-    
-=======
 
 
->>>>>>> master
     var newStory = {
       Title: $("#title").val().trim(),
       Genre: $("#genre").val().trim(),
@@ -134,10 +130,7 @@ $("#add-entry").on("click", function(event){
       text: $("#newStory").val().trim(),
       rootId: 0
     }
-<<<<<<< HEAD
-=======
     
->>>>>>> master
 
     $.post("/api/story", newStory)
     .then(function(data){

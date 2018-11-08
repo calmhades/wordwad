@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       });
     }
     // Sync to database
-    Entry.sync();
+    // Entry.sync();
     return Entry;
     
   };

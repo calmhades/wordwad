@@ -22,7 +22,7 @@ module.exports = function(sequelize, DataTypes) {
       });
     }
     // Syncing to database
-    Story.sync();
+    // Story.sync();
 
     return Story;
   };

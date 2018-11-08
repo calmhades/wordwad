@@ -9,11 +9,7 @@ router.route("/api/entry")
         
         let entry = {
             text: req.body.text,
-<<<<<<< HEAD
-            rootId: req.body.rootId
-=======
             entryParentId: req.body.rootId
->>>>>>> master
             // dynamically add data attribute to each element (as entryParentId) data-entryParentId = (value from db),
             // when you hit new entry - will use jquery to strip off data parent id property & use as entryParentId
             // if want we can have that sent back, and re-render page with freahly created entry 
