@@ -4,6 +4,7 @@ var db = require("../models");
 router.use(require("./protection"));
 
 router.route("/api/entry")
+    
     .post( (req,res) => {
         
         let entry = {
