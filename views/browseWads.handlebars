@@ -35,11 +35,13 @@
         </tr>
       </thead>
         {{#each Story}}
-          <tr id = stories dataId = {{this.id}}>
+       
+          <tr id = "stories" dataId = {{this.id}}>
             <td>{{this.Title}}</td>
             <td>{{this.Genre}}</td>
             <td>{{this.createdAt}}</td>
           </tr>
+    
         {{/each}}
       <tbody>
         

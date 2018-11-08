@@ -42,5 +42,13 @@ router.route("/newStory")
 
     })
 
+router.route("/storyFrag")
+    .get((req,res)=>{
+        res.render("storyFrag")
+
+
+
+    });
+
 
 module.exports = router;
