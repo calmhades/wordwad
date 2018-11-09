@@ -150,6 +150,8 @@ $("#add-entry").on("click", function(event){
     $("#newStory").val("");
     });
 
+    // $.get("/api/story", )
+
 
 
 
