@@ -1,7 +1,8 @@
 module.exports = function(sequelize, DataTypes) {
     var Story = sequelize.define("Story", {
       Title: DataTypes.TEXT,
-      Genre: DataTypes.TEXT
+      Genre: DataTypes.TEXT,
+      creatorId: req.param.id
     },
     {
       paranoid: true
