@@ -16,9 +16,9 @@ $(document).ready(function() {
           
         $.post("/login", userInfo)
         .then(function(data) {
-          console.log(data);
+          console.log(data)
         })
-        .catch((err) => console.log(err))
+        
           
         $("#userName").val("");
         $("#password").val("");
@@ -44,7 +44,6 @@ $(document).ready(function() {
         .then(function(data){
           console.log(data);
         })
-        .catch((err) => console.log(err))
   
         $("#first_name").val("");
         $("#last_name").val("");
@@ -86,7 +85,7 @@ $("#add-entry").on("click", function(event){
       console.log(data);
   
     })
-    .catch((err) => console.log(err))
+  
     $("#body-text").val("");
    
   });
@@ -114,7 +113,7 @@ $("#add-entry").on("click", function(event){
     
             }   
         })
-        .catch((err) => console.log(err))
+        
     });
 
 
@@ -136,14 +135,15 @@ $("#add-entry").on("click", function(event){
     $.post("/api/story", newStory)
       .then(function(data) {
       firstEntr.rootId = data.id
+      
       // Use story response to grab story Id & send with first entry post as rootId
       $.post("/api/entry", firstEntr)
         .then(function(data) {
           
-        })
-        .catch((err) => console.log(err));
-    })
-    .catch((err) => console.log(err));
+        });
+        
+    });
+    
 
     $("#title").val("");
     $("#genre").val("");
