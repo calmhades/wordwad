@@ -1,4 +1,4 @@
-$(document).ready(function(){
+$(document).ready(function() {
     
     //User log in form
     $("#userForm").on("submit",function(){
@@ -14,9 +14,11 @@ $(document).ready(function(){
         console.log(userInfo);
 
           
-        $.post("/login", userInfo).then(function(data) {
-          console.log(data);
-        });
+        $.post("/login", userInfo)
+        .then(function(data) {
+          console.log(data)
+        })
+        
           
         $("#userName").val("");
         $("#password").val("");
@@ -41,8 +43,7 @@ $(document).ready(function(){
         $.post("/api/users", newUser)
         .then(function(data){
           console.log(data);
-      
-        });
+        })
   
         $("#first_name").val("");
         $("#last_name").val("");
@@ -61,10 +62,11 @@ $(document).ready(function(){
         console.log(newChoice);
         
         $.post("/api/entry/:id", newChoice)
-        .then(function(data){
+        .then(function(data) {
           console.log(data);
       
-        });
+        })
+        .catch((err) => console.log(err))
         $("#newChoice").val("");
       });
 
@@ -79,10 +81,11 @@ $("#add-entry").on("click", function(event){
     }
     
     $.post("/api/entry", newEntry)
-    .then(function(data){
+    .then(function(data) {
       console.log(data);
   
-    });
+    })
+  
     $("#body-text").val("");
    
   });
@@ -109,7 +112,8 @@ $("#add-entry").on("click", function(event){
         $("#story-well-" + i).append("<h3>" + data[i].newStory + "</h3>");
     
             }   
-        });
+        })
+        
     });
 
 
@@ -117,39 +121,36 @@ $("#add-entry").on("click", function(event){
   $("#storyCreate").on("submit", function(event){
     event.preventDefault();
   
-    console.log("this is working")
-
-
     var newStory = {
       Title: $("#title").val().trim(),
       Genre: $("#genre").val().trim(),
-    
-  
     };
+    
     var firstEntr = {
       text: $("#newStory").val().trim(),
-      rootId: 0
+      rootId: ''
     }
     
-
+    // ajax post of new story
     $.post("/api/story", newStory)
-    .then(function(data){
-      firstEntr.rootId = data.id;
-      console.log(firstEntr);  
+      .then(function(data) {
+      firstEntr.rootId = data.id
+      
+      // Use story response to grab story Id & send with first entry post as rootId
+      $.post("/api/entry", firstEntr)
+        .then(function(data) {
+          
+        });
+        
     });
-
-    console.log(firstEntr);
-
-    $.post("/api/entry", firstEntr)
-    .then(function(data){
-      console.log(data)
-    })
+    
 
     $("#title").val("");
     $("#genre").val("");
     $("#newStory").val("");
-    });
+  });
 
+   
 
 
 

@@ -14,11 +14,15 @@ var PORT = process.env.PORT || 3000;
 
 
 // Middleware
+app.use(require("cookie-parser")())
+// Morganware for logging requests
+app.use(require("morgan")("combined"))
+// Parse request body as JSON
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+// Make public a static folder
 app.use(express.static("public"));
-app.use(require("cookie-parser")());
-app.use(require("morgan")("combined"))
+
 
 // Setup passport
 let passport = require("./passport-init")(app);
