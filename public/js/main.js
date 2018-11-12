@@ -117,41 +117,34 @@ $("#add-entry").on("click", function(event){
   $("#storyCreate").on("submit", function(event){
     event.preventDefault();
   
-    console.log("this is working")
-
-
     var newStory = {
       Title: $("#title").val().trim(),
       Genre: $("#genre").val().trim(),
-    
-  
     };
+    
     var firstEntr = {
       text: $("#newStory").val().trim(),
-      rootId: 0
+      rootId: ''
     }
     
 
     $.post("/api/story", newStory)
-    .then(function(data){
+      .then(function(data) {
       firstEntr.rootId = data.id;
-      console.log(firstEntr);  
+      console.log("this is the story post " + firstEntr.rootId);
+      $.post("/api/entry", firstEntr)
+        .then(function(data) {
+        console.log("ENTRY DATA___________", data)
+      })
+
     });
-
-    console.log(firstEntr);
-
-    $.post("/api/entry", firstEntr)
-    .then(function(data){
-      console.log(data)
-    })
 
     $("#title").val("");
     $("#genre").val("");
     $("#newStory").val("");
-    });
+  });
 
-    // $.get("/api/story", )
-
+   
 
 
 

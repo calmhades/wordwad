@@ -11,10 +11,7 @@ router.get("/create", (req,res) => {
   res.render("newUser")
 });
 
-//   User.create([req.body.User], function(data) {
-//     console.log(data);
-//   })
-// }
+
   // Load all stories or an individual one by ID 
 router.get("/story", function(req, res) {
         db.Story.findAll({})
@@ -43,12 +40,5 @@ router.post("/api/users",(req,res)=>{
   });
 });
     
-// router.post("/api/users",function(req,res){
-//   console.log("router.post is working")
-//   console.log(req.body)
-//     User.create(req.body).then(function(newUser){
-//       res.json(newUser);
-//     });
-// })
     
 module.exports = router;
