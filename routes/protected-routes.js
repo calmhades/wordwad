@@ -4,9 +4,9 @@ var db = require("../models");
 router.use(require("./protection"));
 
 router.route("/api/entry")
-    
-    .post( (req,res) => {
-        
+
+    .post((req, res) => {
+
         let entry = {
             text: req.body.text,
             // dynamically add data attribute to each element (as entryParentId) data-entryParentId = (value from db),
@@ -14,24 +14,33 @@ router.route("/api/entry")
             // if want we can have that sent back, and re-render page with freahly created entry 
             rootId: parseInt(req.body.rootId)
         }
-            db.Entry.create(entry).then(function(dbEntry){
-                res.json(dbEntry);
+        db.Entry.create(entry).then(function (dbEntry) {
+            res.json(dbEntry);
         })
     })
 
+router.route("/api/entryEntry")
+    .post((req, res) => {
+        let entryEntry = {
+            currentEntryId: parseInt(req.body.currentEntryId)
+        }
+        db.EntryEntry.create(entryEntry).then(function (dbEntryEntry) {
+            res.json(dbEntryEntry);
+        })
+    })
 
 router.route("/api/story")
-    .get( (req,res) => {
+    .get((req, res) => {
         db.Story.findAll({
             limit: 1,
             order: [["createdAt", "DESC"]]
         })
-        .then(function(storyData) {
-            res.json(storyData)
-        })
+            .then(function (storyData) {
+                res.json(storyData)
+            })
     })
 
-    .post( (req, res) => {
+    .post((req, res) => {
         // let newStory = req.body;
 
         let story = {
@@ -41,20 +50,20 @@ router.route("/api/story")
         }
 
 
-        console.log("_________________"+story);
-        db.Story.create(story).then(function(dbStory){
+        console.log("_________________" + story);
+        db.Story.create(story).then(function (dbStory) {
             res.json(dbStory)
         })
     });
 
 router.route("/newStory")
-    .get((req, res)=>{
+    .get((req, res) => {
         res.render("newStory")
 
     })
 
 router.route("/storyFrag")
-    .get((req,res)=>{
+    .get((req, res) => {
         res.render("storyFrag")
 
 

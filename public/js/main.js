@@ -130,6 +130,11 @@ $("#add-entry").on("click", function(event){
       text: $("#newStory").val().trim(),
       rootId: ''
     }
+
+    let firstEntryEntry = {
+      currentEntryId: '',
+      nextEntryID: ''
+    }
     
     // ajax post of new story
     $.post("/api/story", newStory)
@@ -138,9 +143,14 @@ $("#add-entry").on("click", function(event){
       
       // Use story response to grab story Id & send with first entry post as rootId
       $.post("/api/entry", firstEntr)
-        .then(function(data) {
-          
-        });
+        .then(function(dataGuy) {
+          firstEntryEntry.currentEntryId = dataGuy.id
+
+          $.post("/api/entryEntry", firstEntryEntry)
+            .then(function(data) {})
+        
+        
+        })
         
     });
     
